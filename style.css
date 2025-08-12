@@ -1,0 +1,120 @@
+/*halaman perhitungan*/
+.btn-hitung {
+    background-color: #B61E1E;
+    color: white;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .btn-hitung:hover {
+    background-color: #FFEEEE;
+  }
+
+.kanan {
+    text-align: right;
+  }
+
+.judul{
+  color: #E10101;
+  font-size: 32px;
+  font-weight: 640;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.subheading{
+  color: #B61E1E;
+  font-size: 18px;
+  font-weight: 800;;
+  font-family: 'poppins';
+}
+
+/*navbar*/
+.navbar{
+  background-color: #f7f4f4;
+  height: 80px;
+  margin: 0;
+  padding: 0.5rem;
+}
+
+.navbar-brand{
+  font-weight: 500;
+  color: #E10101;
+  font-size: 24px;
+  transition: 0.3s color;
+}
+
+.navbar-toggler{
+  border-color: none;
+  font-size: 1.25rem;
+}
+
+.navbar-toggler:focus, .btn-close:focus{
+  box-shadow: none;
+  outline: none;
+}
+
+.nav-link{
+  color: #666777;
+  font-weight: 500; 
+  position: relative;
+}
+
+.nav-link:hover, .nav-link.active{
+  color:#000;
+}
+
+@media (min-width:991px){
+  .nav-link::before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: #332B2B;
+    visibility: hidden;
+    transition: 0.3s ease-in-out;
+  }
+
+  .nav-link:hover::before, .nav-link.active::before{
+    width: 100%;
+    visibility: visible;
+  }
+}
+
+.navbar-nav{
+  gap: 4rem;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+/*footer*/
+.teks-footer{
+  text-align: justify; 
+  line-height: 2;
+}
+
+.footer{
+  background-color: #f7f4f4;
+}
+
+nav a.active {
+  font-weight: bold;
+  color: #000; 
+}
+
+.centered-list {
+  display: inline-block;
+  text-align: left; 
+}
+
+.center-container {
+  text-align: center; 
+}
