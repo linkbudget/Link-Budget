@@ -81,15 +81,19 @@ function hitungftth(){
     //ubah meter ke kilometer
     const PanjangKabelFTTHKM=PanjangKabelFTTH/1000;
 
-    if (JenisSplitter1 == '1/2') redamansplitter1 = 3.7;
+    if (JenisSplitter1 === "" || JenisSplitter1 === "none") redamansplitter1 = 0;
+    else if (JenisSplitter1 == '1/2') redamansplitter1 = 3.7;
     else if (JenisSplitter1 == '1/4') redamansplitter1 = 7.25;
     else if (JenisSplitter1 == '1/8') redamansplitter1 = 10.38;       
-    else redamansplitter1 = 14.1;
+    else if (JenisSplitter1 == '1/16') redamansplitter1 = 14.1;
+    else redamansplitter1 = 0;
 
-    if (JenisSplitter2 == '1/2') redamansplitter2 = 3.7;
+    if (JenisSplitter2 === "" || JenisSplitter2 === "none") redamansplitter2 = 0;
+    else if (JenisSplitter2 == '1/2') redamansplitter2 = 3.7;
     else if (JenisSplitter2 == '1/4') redamansplitter2 = 7.25;
-    else if (JenisSplitter2 == '1/8') redamansplitter2 = 10.38;       
-    else redamansplitter2 = 14.1;
+    else if (JenisSplitter2 == '1/8') redamansplitter2 = 10.38;   
+    else if (JenisSplitter2 == '1/16') redamansplitter2 = 14.1;    
+    else redamansplitter2 = 0;
 
     const totalredamansaluran = (PanjangKabelFTTHKM*0.35 + KonektorFTTH*0.25 + TitikSambungFTTH*0.1 + redamansplitter1 + redamansplitter2);
     const PerhitunganLinkBudgetFTTH = (DayaPemancar - totalredamansaluran -7);
