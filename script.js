@@ -71,21 +71,28 @@ function hitung(){
 }
 
 function hitungftth(){
+    const DayaPemancar = parseFloat(document.getElementById('dayapemancar').value) || 0;
     const PanjangKabelFTTH = parseFloat(document.getElementById('panjangkabelftth').value) || 0;
     const TitikSambungFTTH = parseFloat(document.getElementById('titiksambungftth').value) || 0;
     const KonektorFTTH = parseFloat(document.getElementById('konektorftth').value) || 0;
-    const JenisSplitter = document.getElementById('jenissplitter').value;
+    const JenisSplitter1 = document.getElementById('jenissplitter1').value;
+    const JenisSplitter2 = document.getElementById('jenissplitter2').value;
 
     //ubah meter ke kilometer
     const PanjangKabelFTTHKM=PanjangKabelFTTH/1000;
 
-    if (JenisSplitter == '1/2') redamansplitter = 3.7;
-    else if (JenisSplitter == '1/4') redamansplitter = 7.25;
-    else if (JenisSplitter == '1/8') redamansplitter = 10.38;       
-    else redamansplitter = 14.1;
+    if (JenisSplitter1 == '1/2') redamansplitter1 = 3.7;
+    else if (JenisSplitter1 == '1/4') redamansplitter1 = 7.25;
+    else if (JenisSplitter1 == '1/8') redamansplitter1 = 10.38;       
+    else redamansplitter1 = 14.1;
 
-    const totalredamansaluran = (PanjangKabelFTTHKM*0.35 + KonektorFTTH*0.25 + TitikSambungFTTH*0.1 + redamansplitter);
-    const PerhitunganLinkBudgetFTTH = (+5 - totalredamansaluran -6);
+    if (JenisSplitter2 == '1/2') redamansplitter2 = 3.7;
+    else if (JenisSplitter2 == '1/4') redamansplitter2 = 7.25;
+    else if (JenisSplitter2 == '1/8') redamansplitter2 = 10.38;       
+    else redamansplitter2 = 14.1;
+
+    const totalredamansaluran = (PanjangKabelFTTHKM*0.35 + KonektorFTTH*0.25 + TitikSambungFTTH*0.1 + redamansplitter1 + redamansplitter2);
+    const PerhitunganLinkBudgetFTTH = (DayaPemancar - totalredamansaluran -7);
 
     document.getElementById('hasilhitungftth').value = PerhitunganLinkBudgetFTTH.toFixed(2) + " dB";
 }
