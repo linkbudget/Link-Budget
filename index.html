@@ -24,54 +24,100 @@
 </head>
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Nama Web</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-        <ul class="navbar-nav justify-content-center w-100">
-            <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="index.html">Beranda</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="perhitungan.html">Perhitungan</a>
-            </li>
-        </ul>
-        </div>
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <ul class="navbar-nav-offcanvas justify-content-end flex-grow-1 pe-3">
-            <li class="nav-item">
-                <a class="nav-link mx-lg-2 active" aria-current="page" href="index.html">Beranda</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link mx-lg-2" href="perhitungan.html">Perhitungan</a>
-            </li>
-            </ul>
-        </div>
-        </div>
+  <nav class="navbar navbar-expand-lg fixed-top navbar-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" id="navbarTitle" href="#">Link Budget</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav justify-content-center w-100">
+        <li class="nav-item">
+          <a class="nav-link" data-title="Link Budget FTTH" href="index2.html">Link Budget FTTH</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-title="Link Budget FO" href="index1.html">Link Budget FO</a>
+        </li>
+      </ul>
     </div>
-    </nav>  
-    
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav-offcanvas justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link" data-title="Link Budget FTTH" href="index2.html">Link Budget FTTH</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-title="Link Budget FO" href="index1.html">Link Budget FO</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>  
+
     <main class="mt-5 pt-5">
-        <h1>Perhitungan Link Budget</h1>
+      <!--Perhitungan-->
+      <div class="container my-5 mt-8">
+        <div class="mt-4 p-4 border rounded bg-white shadow-sm">
+          <h1 class="judul">Perhitungan Link Budget FO</h1>
+          <div class="mb-3">
+            <label class="subheading">Panjang Kabel (meter)</label>
+            <input type="number" id="panjangkabel" class="form-control" placeholder="contoh : 4000">
+          </div>
+
+          <div class="mb-3">
+            <label class="subheading">Jenis Kabel FO</label>
+            <select id="jeniskabel" class="form-select">
+              <option selected disabled>Pilih jenis kabel</option>
+              <option value="652d">G-652D (0,35dB/KM) </option>
+              <option value="655c">G-655C (0,22dB/KM) </option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label class="subheading">Jumlah Titik Sambung</label>
+            <input type="number" id="titiksambung" class="form-control" placeholder="contoh : 1">
+          </div>
+
+          <div class="mb-3">
+            <label class="subheading">Jumlah Terminasi OTB</label>
+            <input type="number" id="terminasiotb" class="form-control" placeholder="contoh : 1">
+          </div>
+
+          <div class="mb-3">
+            <label class="subheading">Jumlah Konektor</label>
+            <input type="number" id="konektor" class="form-control" placeholder="contoh : 1">
+          </div>
+
+          <div class="kanan">
+              <button onclick="hitung()" class="btn-hitung">Hitung</button>
+          </div>
+        </div>
+        
+        <div class="mt-4 p-4 border rounded bg-white shadow-sm">
+            <h1 class="judul">Hasil</h1>
+            <label class="subheading">Link Budget 1 Saluran Optik</label>
+            <input type="text" id="hasilhitung" class="form-control" readonly style="background-color: white;"> 
+        </div>
+      </div>
     </main>
 
-    <footer class="bg-dark text-light py-4 mt-auto">
+    <footer class="p-4 footer shadow-sm">
         <div class="container text-center">
-                <h3>Nama Web</h3>
-                <p>PT. Lorem Ipsum</p>
-                <p>Jalan Lorem Ipsum</p>
-                <p>+62-000-0000-0000</p>
-                <p class="mb-0">123@gmail.com</p>
-                <hr class="bg-light">
-                <p>© 2025 Lorem Ipsum. All Rights Reserved</p>
+            <h3>Fungsi Perhitungan Link Budget Pada Fiber Optik</h3>
+            <div class="center-container"><ol class="angka centered-list">
+              <li class="teks-footer">Memantau performa jaringan setelah instalasi untuk evaluasi degradation dan maintenance.</li>
+              <li class="teks-footer">Menentukan daya keluaran sumber optik vs daya terima minimum yang dibutuhkan di penerima.</li>
+              <li class="teks-footer">Menghitung total rugi atau loss dari semua elemen jalur : kabel, konektor, sambungan, splitter.</li>
+            </ol>
+            </div>
         </div>
     </footer>
 
