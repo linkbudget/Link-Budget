@@ -101,3 +101,4 @@ function hitungftth(){
     document.getElementById('hasilhitungftth').value = PerhitunganLinkBudgetFTTH.toFixed(2) + " dB";
 }
 
+
