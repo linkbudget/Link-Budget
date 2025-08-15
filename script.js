@@ -62,7 +62,7 @@ function hitung(){
     //ubah meter ke kilometer
     const PanjangKabelKM=PanjangKabel/1000;
 
-    if (JenisKabel == '655c') redamanKabel = 0.22;        
+    if (JenisKabel == '655c') redamanKabel = 0.21;        
     else redamanKabel = 0.35;
 
     const PerhitunganLinkBudget = (0.15*TitikSambung + 0.15*TerminasiOTB + 0.5*Konektor + redamanKabel*PanjangKabelKM);
@@ -100,3 +100,4 @@ function hitungftth(){
 
     document.getElementById('hasilhitungftth').value = PerhitunganLinkBudgetFTTH.toFixed(2) + " dB";
 }
+
