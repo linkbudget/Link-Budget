@@ -1,120 +1,399 @@
-/*halaman perhitungan*/
-.btn-hitung {
-    background-color: #B61E1E;
-    color: white;
-    padding: 10px 10px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #CA4637;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Navigation */
+.navbar {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 0;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    overflow: hidden;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 0;
+    border-top: 1px solid #e0e0e0;
+}
+
+.nav-btn {
+    flex: 1;
+    padding: 18px 24px;
     border: none;
-    border-radius: 8px;
+    background: transparent;
+    color: #999;
     cursor: pointer;
-  }
-
-  .btn-hitung:hover {
-    background-color: #FFEEEE;
-  }
-
-.kanan {
-    text-align: right;
-  }
-
-.judul{
-  color: #E10101;
-  font-size: 32px;
-  font-weight: 640;
-  text-align: center;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+    font-size: 1em;
+    transition: all 0.3s;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    border-bottom: 3px solid transparent;
 }
 
-.subheading{
-  color: #B61E1E;
-  font-size: 18px;
-  font-weight: 800;;
-  font-family: 'poppins';
+.nav-btn:not(:last-child) {
+    border-right: 1px solid #f0f0f0;
 }
 
-/*navbar*/
-.navbar{
-  background-color: #f7f4f4;
-  height: 80px;
-  margin: 0;
-  padding: 0.5rem;
+.nav-btn:hover {
+    color: #CA4637;
+    background: rgba(102, 126, 234, 0.05);
 }
 
-.navbar-brand{
-  font-weight: 500;
-  color: #E10101;
-  font-size: 24px;
-  transition: 0.3s color;
+.nav-btn.active {
+    color: #CA4637;
+    background: transparent;
+    border-bottom: 3px solid #CA4637;
+    font-weight: 600;
 }
 
-.navbar-toggler{
-  border-color: none;
-  font-size: 1.25rem;
+/* Home Page */
+.home-page {
+    display: block;
 }
 
-.navbar-toggler:focus, .btn-close:focus{
-  box-shadow: none;
-  outline: none;
+.hero-section {
+    background: white;
+    border-radius: 20px;
+    padding: 40px 40px ;
+    margin-bottom: 40px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    text-align: center;
 }
 
-.nav-link{
-  color: #666777;
-  font-weight: 500; 
-  position: relative;
+.hero-section h1 {
+    font-size: 2.5em;
+    color: #CA4637;
+    margin-bottom: 20px;
+    animation: fadeInDown 1s ease;
 }
 
-.nav-link:hover, .nav-link.active{
-  color:#000;
+.hero-section .subtitle {
+    font-size: 1.5em;
+    color: #666;
+    margin-bottom: 30px;
+    animation: fadeInUp 1s ease;
 }
 
-@media (min-width:991px){
-  .nav-link::before{
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 2px;
-    background-color: #332B2B;
-    visibility: hidden;
-    transition: 0.3s ease-in-out;
-  }
+.hero-section .description {
+    font-size: 1.1em;
+    color: #777;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
 
-  .nav-link:hover::before, .nav-link.active::before{
+.cta-button {
+    display: inline-block;
+    padding: 18px 40px;
+    background: #CA4637;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.2em;
+    font-weight: 600;
+    transition: all 0.3s;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+/* Features Grid */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.feature-card {
+    background: white;
+    border-radius: 15px;
+    padding: 35px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    transition: all 0.3s;
+    animation: fadeIn 1s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+}
+
+.feature-icon {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    color: #CA4637;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.feature-card p {
+    color: #666;
+    line-height: 1.7;
+    font-size: 1.05em;
+    text-align: justify;
+}
+
+/* Calculator Page */
+.calculator-page,
+.fo-page {
+    display: block;
+}
+
+.calculator-card {
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.calculator-card h2 {
+    color: #333;
+    font-size: 1.8em;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 1em;
+}
+
+.form-group input,
+.form-group select {
     width: 100%;
-    visibility: visible;
-  }
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1em;
+    transition: all 0.3s;
 }
 
-.navbar-nav{
-  gap: 4rem;
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #CA4637;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
-html{
-  scroll-behavior: smooth;
+.button-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
 }
 
-/*footer*/
-.teks-footer{
-  text-align: justify; 
-  line-height: 2;
+.btn {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
 }
 
-.footer{
-  background-color: #f7f4f4;
+.btn-primary {
+    background: #CA4637;
+    color: white;
 }
 
-nav a.active {
-  font-weight: bold;
-  color: #000; 
+.btn-primary:hover {
+    background: #e0e0e0;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
 }
 
-.centered-list {
-  display: inline-block;
-  text-align: left; 
+.btn-secondary {
+    background: #e0e0e0;
+    color: #333;
 }
 
-.center-container {
-  text-align: center; 
+.btn-secondary:hover {
+    background: #d0d0d0;
+}
+
+.result-card {
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    display: none;
+}
+
+.result-card.show {
+    display: block;
+    animation: slideIn 0.5s ease;
+}
+
+.result-card h2 {
+    color: #333;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+.result-box {
+    background: #CA4637;
+    color: white;
+    padding: 25px;
+    border-radius: 10px;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.info-card {
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.info-card h3 {
+    color: #CA4637;
+    font-size: 1.6em;
+    margin-bottom: 20px;
+}
+
+.info-card ol {
+    padding-left: 25px;
+}
+
+.info-card li {
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    font-size: 1.05em;
+    text-align: justify;
+}
+
+.info-card p {
+    color: #666;
+    line-height: 1.7;
+    font-size: 1.05em;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.footer {
+    text-align: center;
+    color: white;
+    margin-top: 40px;
+    padding: 20px;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .logo {
+        font-size: 1.4em;
+    }
+
+    .hero-section h1 {
+        font-size: 2.2em;
+    }
+
+    .hero-section .subtitle {
+        font-size: 1.2em;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .calculator-card,
+    .result-card,
+    .info-card {
+        padding: 25px;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
 }
