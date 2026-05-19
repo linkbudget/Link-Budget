@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FO Calculator - Link Budget</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="nav-menu">
+                <a href="index.html" class="nav-btn">Home</a>
+                <a href="perhitungan.html" class="nav-btn">Receive Signal Level FFTH</a>
+                <a href="fo.html" class="nav-btn active">Link Budget FO Backbone</a>
+            </div>
+        </nav>
+
+        <!-- FO Calculator -->
+                <div class="calculator-page">
+            <div class="calculator-card">
+                <h2>Perhitungan Link Budget FO Backbone</h2>
+
+                <div class="form-group">
+                    <label>Panjang Kabel (meter)</label>
+                    <input type="number" id="panjangKabelFO" placeholder="contoh: 4000" step="1">
+                </div>
+
+                <div class="form-group">
+                    <label>Jenis Kabel FO</label>
+                    <select id="jenisKabelFO">
+                        <option value="">Pilih jenis kabel FO</option>
+                        <option value="652d">G-652D (0,35dB/KM) </option>
+                        <option value="655c">G-655C (0,21dB/KM) </option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Jumlah Titik Sambung</label>
+                    <input type="number" id="titiksambung" placeholder="contoh: 1" step="0.1">
+                </div>
+
+                <div class="form-group">
+                    <label>Jumlah Terminasi OTB</label>
+                    <input type="number" id="terminasiotb" placeholder="contoh: 1" step="1">
+                </div>
+
+                <div class="form-group">
+                    <label>Jumlah Konektor</label>
+                    <input type="number" id="konektor" placeholder="contoh: 1" step="1">
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-primary" onclick="hitungfo()">Hitung</button>
+                    <button class="btn btn-secondary" onclick="resetFormfo()">Reset</button>
+                </div>
+            </div>
+
+            <div class="result-card" id="resultCard">
+                <h2>Hasil Perhitungan</h2>
+                <label style="display: block; margin-bottom: 10px; color: #666; font-weight: 600;">Receive Signal Level FTTH 1 Saluran Optik</label>
+                <div class="result-box" id="hasilText"></div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>© 2025 Perhitungan Link Budget FO Backbone & Receive Signal Level Jaringan FTTH</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
